@@ -1,0 +1,36 @@
+{
+  "actorSpecification": 1,
+  "name": "b2b-local-lead-enricher",
+  "title": "B2B Local Lead Enricher & Tech Stack Scanner",
+  "description": "Extracts corporate emails, phone numbers, social media profiles, JSON-LD business entities, and front-end technology stacks from target company URLs.",
+  "version": "1.0.0",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Enriched B2B Leads Dataset",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "domain",
+              "companyName",
+              "emails",
+              "phones",
+              "techStack",
+              "socialProfiles",
+              "leadQualityScore"
+            ]
+          },
+          "display": {
+            "component": "table"
+          }
+        }
+      }
+    }
+  }
+}

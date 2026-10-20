@@ -1,0 +1,46 @@
+{
+  "title": "B2B Local Lead Enricher Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Target Business URLs",
+      "type": "array",
+      "description": "List of company websites or business directory pages to crawl and enrich.",
+      "editor": "stringList",
+      "default": [
+        "https://apify.com",
+        "https://stripe.com"
+      ]
+    },
+    "crawlContactPages": {
+      "title": "Crawl Internal Contact & About Pages",
+      "type": "boolean",
+      "description": "Automatically discover and scrape /contact, /about, and /legal subpages for hidden email addresses and phone numbers.",
+      "default": true
+    },
+    "maxContactPagesPerDomain": {
+      "title": "Max Subpages Per Domain",
+      "type": "integer",
+      "description": "Maximum number of internal contact/about pages to inspect per target domain.",
+      "default": 2,
+      "minimum": 0,
+      "maximum": 10
+    },
+    "detectTechStack": {
+      "title": "Detect Technology Stack",
+      "type": "boolean",
+      "description": "Scan HTML headers, scripts, and meta tags for CMS, analytics, CRM, payment gateways, and e-commerce frameworks.",
+      "default": true
+    },
+    "requestTimeoutSecs": {
+      "title": "HTTP Timeout (Seconds)",
+      "type": "integer",
+      "description": "Maximum wait time per HTTP request.",
+      "default": 15,
+      "minimum": 5,
+      "maximum": 60
+    }
+  },
+  "required": ["urls"]
+}
